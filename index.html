@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="code mẫu từ www.w3school.com">
+    <meta name="keywords" content="HTML, CSS, JavaScript">
+    <meta name="author" content="Ngọc Nguyễn">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - NGUYỄN LÊ BÍCH NGỌC</title>
+    <style>
+        /* Thiết lập màu sắc chính */
+            /* root: để định nghĩa các biến màu sắc chính, phụ và màu sắc cho văn bản*/
+        :root {
+            --primary-color: #3498db;           /* Màu sắc chính */
+            --secondary-color: #2ecc71;         /* Màu sắc phụ */
+            --text-color: #2c3e50;              /* Màu sắc cho văn bản */
+            --background-color: #ecf0f1;        /* Màu nền cho trang */
+            --highlight-color: #e74c3c;         /* Màu sắc nổi bật cho các liên kết hoặc tiêu đề */
+        }
+
+        body {
+            font-family: Arial, sans-serif;                 /* Chọn font chữ cho toàn bộ trang */
+            line-height: 1.6;                               /* Khoảng cách giữa các dòng */
+            margin: 0;                                      /* Bỏ margin mặc định */
+            padding: 0;                                     /* Bỏ padding mặc định */
+            background-color: var(--background-color);      /* Áp dụng màu nền đã định nghĩa (--background-color trên root)*/
+        }
+        
+        .container {                                        
+            max-width: 900px;                               /* Đặt chiều rộng tối đa cho container */
+            margin: 30px auto;                              /* Căn giữa container và tạo khoảng cách trên/dưới */
+            padding: 20px;                                  /* Khoảng cách bên trong container */
+         } 
+        
+        h1, h2, h3 {
+            color: var(--primary-color);                    /* Áp dụng màu sắc chính cho các tiêu đề */
+        }
+
+        h1 {
+            text-align: center;                             /* Căn giữa tiêu đề */
+            font-size: 36px;                                /* Kích thước chữ cho tiêu đề */
+            text-transform: uppercase;                      /* Chuyển đổi chữ thành in hoa */
+            letter-spacing: 2px;                            /* Khoảng cách giữa các chữ cái */
+        }
+
+        h2 {
+            border-bottom: 2px solid var(--secondary-color);    /* Tạo đường viền dưới tiêu đề */
+            padding-bottom: 5px;                                /* Khoảng cách dưới tiêu đề */
+            margin-bottom: 20px;                                /* Khoảng cách dưới tiêu đề */
+            color: var(--secondary-color);                      /* Áp dụng màu sắc phụ (định nghĩa trên root) cho tiêu đề */
+        }
+
+        .header {
+            display: flex;                                      /* Sử dụng Flexbox để căn chỉnh các phần tử bên trong */
+            justify-content: space-between;                     /* Tạo khoảng cách giữa các phần tử */
+            align-items: center;                                /* Căn giữa theo chiều dọc */
+            border-bottom: 2px solid var(--primary-color);      /* Tạo đường viền dưới cho header */
+            padding-bottom: 20px;                               /*khoảng cách giữa nội dung bên trong và viền dưới*/
+            margin-bottom: 20px;                                /*khoảng cách giữa phần tử này và phần tử ngay bên dưới nó*/
+        }
+
+        .header img {
+            border-radius: 50%;                                 /* Làm cho ảnh thành hình tròn */
+            width: 250px;
+            height: 250px;
+            border: 5px solid var(--primary-color);             /* Tạo viền cho ảnh */
+        }
+        
+        .info {
+            text-align: right;                                  /* Căn phải cho phần thông tin liên hệ */
+        }
+
+        /* Các đoạn văn trong phần thông tin */
+        .info p {   
+            margin: 5px 0;                                      /* Khoảng cách trên/dưới là 5 pixel trái/phải là 0 cho các đoạn văn */
+            color: var(--text-color);
+        }
+
+        section {                                               /* các phần nội dung chính*/
+            margin-bottom: 30px;                                /* Khoảng cách dưới mỗi section */
+        }
+
+        ul {
+            list-style-type: none;                              /* Bỏ dấu chấm đầu dòng trong danh sách */
+            padding: 0;                                         /* Bỏ padding mặc định */
+        }
+
+        ul li {
+            margin-bottom: 10px;                                /* Khoảng cách dưới mỗi mục */
+        }
+
+        ul li h3 {
+            color: var(--highlight-color);                      /* Áp dụng màu sắc nổi bật cho tiêu đề trong mục */
+        }
+
+        ul li p {
+            margin: 5px 0;                                       /* Khoảng cách trên/dưới là 5 pixel trái/phải là 0 cho các đoạn văn */
+            color: var(--text-color);                            /* Áp dụng màu sắc cho văn bản */   
+        }
+
+        a {
+            color: var(--highlight-color);                       /* Màu sắc cho liên kết */
+            text-decoration: none;                               /* Bỏ gạch chân cho liên kết */
+        }
+
+        a:hover {                                                /* Hiệu ứng hover cho liên kết */
+            text-decoration: underline;                          /* Gạch chân khi di chuột qua liên kết */
+        }
+
+        /* Tạo hiệu ứng hover cho các mục */
+        ul li:hover {
+            background-color: #6cf1d4;                         /* Đổi màu nền khi di chuột qua mục */
+            color: #fff;                                       /* Đổi màu chữ thành trắng */
+            padding: 10px;                                       /* Thêm khoảng cách bên trong cho mục khi hover */
+            border-radius: 5px;                                  /* Bo góc cho mục khi hover */
+            transition: background-color 0.3s ease;              /* Tạo hiệu ứng chuyển màu nền mượt mà */
+        }
+
+        footer {
+            text-align: center;                                  /* Căn giữa nội dung trong footer */
+            padding: 20px 0;                                     /* Khoảng cách trên/dưới cho footer */
+            background-color: var(--primary-color);              /* Màu nền cho footer */
+            color: #fff;                                       /* Màu chữ trong footer */
+            border-radius: 0 0 10px 10px;                        /* Bo góc cho footer */
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header class="header">
+        <div class="personal-info">
+            <h1>NGUYỄN LÊ BÍCH NGỌC</h1>
+            <p>Vị trí mong muốn: SOFTWARE DESIGN</p>
+        </div>
+        <div class="profile-pic">
+            <img src="me.jpg" alt="Ảnh đại diện">
+        </div>
+    </header>
+
+    <section class="info">
+        <h2>Thông tin liên hệ</h2>
+        <p>Email: nlbngoc102@gmail.com</p>
+        <p>Điện thoại: 0987 460 902</p>
+        <p>Địa chỉ: Tân Uyên - Bình Dương</p>
+        <p>GitHub: <a href="https://github.com/nlbngoc102" target="_blank">https://github.com/nlbngoc102</a></p>
+    </section>
+
+    <section>
+        <h2>Mục tiêu nghề nghiệp</h2>
+        <p>Mục tiêu của tôi là phát triển và tối ưu hóa các giải pháp phần mềm cho vi mạch, tích hợp công nghệ mới nhằm cải thiện hiệu suất sản phẩm, 
+            đồng thời nâng cao kỹ năng lập trình và hợp tác hiệu quả với các kỹ sư phần cứng trong các dự án đa ngành.</p>
+    </section>
+
+    <section>
+        <h2>Kinh nghiệm làm việc</h2>
+        <!--<ul>:tạo danh sách không thứ tự (unordered list) 
+            <li>: một mục trong danh sách-->
+        <ul>
+            <li>
+                <h3>Mô hình hệ thống đỗ xe thông minh</h3>
+                <p>Môn học: Đồ án 1</p>
+                <p>URL:<a href="https://github.com/nlbngoc102/Design-of-a-smart-parking-system-model" target="_blank">https://github.com/nlbngoc102/Design-of-a-smart-parking-system-model</a></p>
+                <p>Thời gian: 03/2024 - 06/2024</p>
+                <p>Mô tả: Phát triển hệ thống nhúng dựa trên vi điều khiển Arduino Uno R3, với các ngôn ngữ lập trình C/C++, cấu hình I/O và giao tiếp với thiết bị qua các giao thức SPI, I2C và UART</p>
+            </li>
+            <li>
+                <h3>Thiết kế mạch đo nhiệt độ</h3>
+                <p>Môn học: Thực tập vi xử lý</p>
+                <p>URL:<a href="https://github.com/nlbngoc102/Design-of-a-system-for-monitoring-temperature-and-humidity" target="_blank">https://github.com/nlbngoc102/Design-of-a-system-for-monitoring-temperature-and-humidity</a></p>
+                <p>Thời gian: 10/2023 - 12/2023</p>
+                <p>Mô tả: Sử dụng PIC16F887 để điều khiển cảm biến LM35 đo nhiệt độ môi trường và hiển thị kết quả trên màn hình LCD 16x2.Sử dụng phần mềm Proteus để mô phỏng và tối ưu hóa thuật toán trước khi triển khai trên phần cứng.</p>
+            </li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Học vấn</h2>
+        <ul>        
+            <li>
+                <h3>Đại học Sư phạm Kỹ thuật TP Hồ Chí Minh</h3>
+                <p>Thời gian: 2021 - Dự kiến 09/2025</p>
+                <p>GPA: 7.37</p>
+            </li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Kỹ năng</h2>
+        <ul>
+            <li>Lập trình: C, Python,Verilog, HTML, CSS</li>
+            <li>Phần mềm: Proteus,Matlab, Cadence, Xilinx </li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Chứng chỉ</h2>
+        <ul>
+            <li> SPRING TECH 2023T
+                HO CHI MINH CITY UNIVERSITY OF TECHNOLOGY AND EDUCATION (2023)<br>
+                Certificate URL:<a href="https://drive.google.com/file/d/1yVpQq938m1Bfu9OzDHp--rNd6Hj6481O/view" target="_blank">https://drive.google.com/file/d/1yVpQq938m1Bfu9OzDHp--rNd6Hj6481O/view</a></p>
+            </li>
+            
+        </ul>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Profile - NGUYỄN LÊ BÍCH NGỌC</p>
+    </footer>
+</div>
+
+</body>
+</html>
